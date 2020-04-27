@@ -3,8 +3,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="container">
           <div class="navbar-nav ml-auto mr-auto">
-            <a class="nav-item nav-link active" @click="linkNav" ref="nav" href="/">Home</a>
-            <a class="nav-item nav-link" ref="nav" href="/about">About</a>
+            <a class="nav-item nav-link active" href="/">Home</a>
+            <a class="nav-item nav-link" href="/detail">Detail</a>
           </div>
         </div>
       </div>
@@ -22,11 +22,6 @@
 </style>
 <script>
 export default {
-  methods: {
-    linkNav: function () {
-      $refs.nav.classList.remove('active');
-      this.$refs.nav.classList.add('active');
-    }
-  }
+
 }
 </script>
