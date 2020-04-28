@@ -13,16 +13,18 @@
         </div>
     </div>
     <hr>
-    <div class="col-md-4">
-      <div class="card mb-3" v-for="item in results" v-bind:key="item.key">
-          <img :src="item.strMealThumb" class="card-img-top" style="width: 100%; height: 400px; ">
-          <div class="card-body">
-            <input type="text" :value="item.idMeal" hidden>
-            <h5 class="card-title">{{ item.strMeal }}</h5>
-            <h6 class="card-title">Kategori {{ item.strCategory }}</h6>
-            <h6 class="card-title">Dari daerah {{ item.strArea }}</h6>
-            <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModal">Lihat Detail</a>
-          </div>
+    <div class="row">
+      <div class="col-md-4" v-for="item in results" v-bind:key="item.key">
+        <div class="card mb-3">
+            <img :src="item.strMealThumb" class="card-img-top" style="width: 100%; height: 400px; ">
+            <div class="card-body">
+              <input type="text" :value="item.idMeal" hidden>
+              <h5 class="card-title">{{ item.strMeal }}</h5>
+              <h6 class="card-title">Kategori {{ item.strCategory }}</h6>
+              <h6 class="card-title">Dari daerah {{ item.strArea }}</h6>
+              <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModal">Lihat Detail</a>
+            </div>
+        </div>
       </div>
     </div>
 </div>
