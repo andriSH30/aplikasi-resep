@@ -24,10 +24,11 @@ module.exports = {
         "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js",
       type: "text/javascript" }
     ],
-    modules: [
-      '@nuxtjs/pwa',
-    ]
   },
+
+  modules: [
+    '@nuxtjs/pwa',
+  ],
   /*
   ** Customize the progress bar color
   */
