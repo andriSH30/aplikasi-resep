@@ -1,12 +1,10 @@
 <template>
     <nav class="navbar navbar-expand-lg nav-red navbar-dark">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="container">
           <div class="navbar-nav ml-auto mr-auto">
             <a class="nav-item nav-link active" href="/">Home</a>
-            <a class="nav-item nav-link" href="/detail">Detail</a>
+            <a class="nav-item nav-link" href="/about">About</a>
           </div>
-        </div>
       </div>
     </nav>
 </template>
