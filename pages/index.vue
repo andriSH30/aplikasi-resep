@@ -1,10 +1,16 @@
 <template>
-<div class="container">
-  <div class="row mt-3 justify-content-center">
+  <div>
+    <div class="alert alert-warning text-center" role="alert">
+      <div v-for="k in kategori" v-bind:key="k.idCategory" style="display: inline !important;">
+        <a class="link-kategori" style="margin-left: 20px; color: #cf1717;" @click="filterKategori(k.strCategory)"> {{k.strCategory}} </a>
+      </div>
+    </div>
+  <div class="container">
+  <div class="row mt-1 justify-content-center">
         <div class="col-md-8">
             <h1 class="text-center">Search Your food Recipes!</h1>
-            <div class="input-group mb-3 mt-2">
-                <input type="text" class="form-control" v-model="cari" placeholder="Input your food's name here!" style="text-align:center;">
+            <div class="input-group mb-1 mt-1">
+                <input type="text" class="form-control" v-model="cari" placeholder="Input a food's name here!" style="text-align:center;">
             </div>
         </div>
     </div>
@@ -15,8 +21,7 @@
             <img :src="item.strMealThumb" class="card-img-top" style="width: 100%; height: 350px; ">
             <div class="card-body text-center">
               <div class="alert alert-warning" role="alert">
-                <h3 class="card-title" style="text-align:center;">{{ item.strMeal }}</h3>
-                <p>{{item.strCategory}}</p>
+                <h4 class="card-title" style="text-align:center;">{{ item.strMeal }}</h4>
               </div>
               <button type="button" class="btn btn-outline-danger btn-block"  data-toggle="modal" data-target="#staticBackdrop" @click="detail(item.idMeal)">See Recipes!</button>
             </div>
@@ -24,7 +29,7 @@
       </div>
     </div>
 
-    <!-- MODAL -->
+    <!-- MODAL DETAIL-->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -38,7 +43,7 @@
             <div class="container-fluid">
               <div class="row" v-for="dm in detailMenu" v-bind:key="dm.idMeal">
                 <div class="col-md-4">
-                  <img :src="dm.strMealThumb" style="width: 100%; height: 400px;">
+                  <img :src="dm.strMealThumb" style="width: 100%; height: 430px; position: fixed; width: 330px;">
                 </div>
                 <div class="col-md-8">
                   <div class="alert alert-warning" role="alert">
@@ -48,7 +53,7 @@
                     <tbody>
                       <tr>
                         <th scope="row">Category</th>
-                        <td>{{dm.strCategory}}</td>
+                        <td><span class="badge badge-danger">{{dm.strCategory}}</span></td>
                       </tr>
                       <tr>
                         <th scope="row">Origins</th>
@@ -99,6 +104,8 @@
         </div>
       </div>
     </div>
+
+</div>
 </div>
 </template>
 
@@ -108,17 +115,27 @@ export default {
   data () {
     return {
       cari: '',
+      kategori: [],
       results: [],
       detailMenu: [],
     }
   },
-  mounted() {
-    this.loadData()
+
+  created() {
+    axios.get("https://www.themealdb.com/api/json/v1/1/search.php?s=")
+      .then(response => {
+        this.results = response.data.meals
+      }),
+      axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
+      .then(response => {
+        this.kategori = response.data.categories
+      })
   },
 
   methods : {
-    loadData: function() {
-      axios.get("https://www.themealdb.com/api/json/v1/1/search.php?s=")
+    filterKategori: function(namaKategori) {
+      this.results = [];
+      axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c="+namaKategori)
       .then(response => {
         this.results = response.data.meals
       })
@@ -145,6 +162,9 @@ export default {
 <style scoped>
   body{
     background-color: #f09c9c;
+  }
+  .link-kategori:hover{
+    border-bottom: solid 2px #cf1717;
   }
 </style>
 
