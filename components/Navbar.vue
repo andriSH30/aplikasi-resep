@@ -1,9 +1,13 @@
 <template>
     <nav class="navbar navbar-expand-lg nav-red navbar-dark">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav ml-auto mr-auto">
-            <a class="nav-item nav-link active" href="/">Home</a>
-            <a class="nav-item nav-link" href="/about">About</a>
+            <a class="nav-item nav-link active" href="/">Food</a>
+            <a class="nav-item nav-link active" href="/about">About</a>
+            <a class="nav-item nav-link active" href="/login">Login</a>
           </div>
       </div>
     </nav>
@@ -16,6 +20,10 @@
 
   .navbar .navbar-dark {
     color: white;
+  }
+
+  .nav-link:hover{
+    color: yellow !important;
   }
 </style>
 <script>

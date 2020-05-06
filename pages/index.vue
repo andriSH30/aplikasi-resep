@@ -1,8 +1,15 @@
 <template>
   <div>
     <div class="alert alert-warning text-center" role="alert">
+      <h4>Categories</h4>
       <div v-for="k in kategori" v-bind:key="k.idCategory" style="display: inline !important;">
         <a class="link-kategori" style="margin-left: 20px; color: #cf1717;" @click="filterKategori(k.strCategory)"> {{k.strCategory}} </a>
+      </div>
+    </div>
+    <div class="alert alert-danger text-center" role="alert" style="margin-top: -10px;">
+      <h4>Area</h4>
+      <div v-for="a in area" v-bind:key="a.idArea" style="display: inline !important;">
+        <a class="link-area" style="margin-left: 20px;" @click="filterArea(a.strArea)"> {{a.strArea}} </a>
       </div>
     </div>
   <div class="container">
@@ -106,6 +113,12 @@
     </div>
 
 </div>
+    <div class="alert alert-dark text-center" role="alert" style="margin-top: 10px;">
+      <h2>Ingredients</h2>
+      <div v-for="b in bahan" v-bind:key="b.idIngredient" style="display: inline !important;">
+        <a class="link-bahan" style="margin-left: 20px;" @click="filterBahan(b.strIngredient)"> {{b.strIngredient}} </a>
+      </div>
+    </div>
 </div>
 </template>
 
@@ -116,6 +129,8 @@ export default {
     return {
       cari: '',
       kategori: [],
+      area: [],
+      bahan: [],
       results: [],
       detailMenu: [],
     }
@@ -129,6 +144,14 @@ export default {
       axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then(response => {
         this.kategori = response.data.categories
+      }),
+      axios.get("https://www.themealdb.com/api/json/v1/1/list.php?a=list")
+      .then(response => {
+        this.area = response.data.meals
+      }),
+      axios.get("https://www.themealdb.com/api/json/v1/1/list.php?i=list")
+      .then(response => {
+        this.bahan = response.data.meals
       })
   },
 
@@ -136,6 +159,20 @@ export default {
     filterKategori: function(namaKategori) {
       this.results = [];
       axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c="+namaKategori)
+      .then(response => {
+        this.results = response.data.meals
+      })
+    },
+    filterArea: function(namaArea) {
+      this.results = [];
+      axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?a="+namaArea)
+      .then(response => {
+        this.results = response.data.meals
+      })
+    },
+    filterBahan: function(namaBahan) {
+      this.results = [];
+      axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?i="+namaBahan)
       .then(response => {
         this.results = response.data.meals
       })
@@ -165,6 +202,12 @@ export default {
   }
   .link-kategori:hover{
     border-bottom: solid 2px #cf1717;
+  }
+  .link-area:hover{
+    border-bottom: solid 2px black;
+  }
+  .link-bahan:hover{
+    border-bottom: solid 2px black;
   }
 </style>
 
