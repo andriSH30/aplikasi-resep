@@ -31,6 +31,7 @@
                 <h4 class="card-title" style="text-align:center;">{{ item.strMeal }}</h4>
               </div>
               <button type="button" class="btn btn-outline-danger btn-block"  data-toggle="modal" data-target="#staticBackdrop" @click="detail(item.idMeal)">See Recipes!</button>
+              <button type="button" class="btn btn-warning btn-block" v-if="sLogin">Add to my Favourite!</button>
             </div>
         </div>
       </div>
@@ -193,6 +194,12 @@ export default {
         return item.strMeal.toLowerCase().match(this.cari.toLowerCase())
       })
     },
+    sLogin: function (){
+      return this.$store.state.statusLogin
+    },
+    sLogout: function (){
+      return this.$store.state.statusLogout
+    }
   }
 }
 </script>
