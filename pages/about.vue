@@ -5,13 +5,27 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Post Title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Sunday, 28 January 2017</h6>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero vel laudantium rem nemo? Quibusdam, inventore iure. Veritatis vel magni neque modi nisi temporibus veniam nulla atque ad nemo consequatur, iusto facere ab molestiae officiis. Quae doloribus deserunt reprehenderit consequatur eaque quod, facilis quas quo explicabo esse dolor ut ex nesciunt mollitia enim molestiae libero? Nesciunt nihil rerum fugiat facilis distinctio neque? Quis suscipit esse aperiam explicabo possimus ut at recusandae eveniet aspernatur, libero doloremque minima, eius ab fugit cupiditate voluptatum perferendis animi commodi. Obcaecati, cum? Magnam illum soluta ad, doloremque fuga libero eum aliquam debitis voluptatibus delectus recusandae sit quis. Error, ipsa deserunt. Minus incidunt ut eveniet eius quod, delectus ea ipsa iste, labore magni rem. Sequi vel commodi adipisci quisquam autem omnis debitis corporis fugit, optio fugiat reiciendis, provident est odio possimus necessitatibus. Magnam officia delectus quaerat quia perspiciatis provident, quidem optio, sapiente eum dignissimos atque assumenda ipsum nemo exercitationem et aliquam autem numquam deserunt laborum? Repellendus vero dicta dignissimos eum, ab accusantium aliquam esse eveniet tempore cupiditate voluptates labore pariatur soluta debitis ducimus maiores officia aspernatur libero a temporibus aut consequuntur non quam ea. Facere, quibusdam voluptas, sapiente unde nisi qui iure id asperiores ea blanditiis inventore cum saepe itaque fugiat natus odit dignissimos necessitatibus iste nobis omnis quis, ipsa maiores. Laborum exercitationem rerum, error soluta qui dolore sequi laudantium molestias nihil vel hic amet ad recusandae ducimus, atque odit ex nemo illum quibusdam provident suscipit modi. Natus, qui rerum, magni eius accusantium corrupti laborum quisquam corporis nisi aut facere ipsam similique voluptates possimus praesentium eligendi repellat alias consequatur ex quidem sunt voluptate nemo? Quo quod, mollitia temporibus at cupiditate delectus impedit aliquam corrupti dicta perspiciatis velit eius quam itaque fuga voluptates, doloribus distinctio praesentium magnam a iusto, deserunt ad? Numquam ipsum ea officia voluptatem neque est rem odio iste laborum, repellendus labore obcaecati fugiat nisi optio nulla similique illum perferendis cum laudantium porro expedita iusto blanditiis aperiam! Libero delectus fugiat ipsam officiis aut in esse aliquam beatae cupiditate placeat dolorum, perferendis magni, animi sequi? Maxime consequuntur praesentium assumenda tempora labore excepturi consequatur recusandae. Blanditiis quasi dolore deleniti fugit voluptatum consequuntur delectus odio ex, temporibus accusantium provident quibusdam quae quos porro? Provident ea soluta voluptas illo? Vel nostrum nesciunt nemo distinctio modi quod ad aperiam animi optio omnis magni, fuga praesentium repudiandae quam accusamus, dignissimos ea atque molestiae, aspernatur minus at veniam expedita aut architecto. Temporibus, animi voluptate?</p>
+              <h5 class="card-title">Resep Ku App</h5>
+              <h6 class="card-subtitle mb-2 text-muted">10 Mei 2020</h6>
+              <p class="card-text">Project ini merupakan Tugas akhir semester 4 mata Kuliah Implementasi Gui yang dibina oleh pak han, Aplikasi Resep ini merupakan Sebuah aplikasi pencarian data resep makanan menggunakan Framework Nuxt JS yang terhubung dengan REST API Milik <a href="https://www.themealdb.com/api.php" target="_BLANK">The MealdDB</a> Menggunakan Axios, dengan kata lain seluruh data yang ada di aplikasi ini mengkonsumsi data milik The MealdDB tersebut untuk di tampilkan di aplikasi ini. Di aplikasi Resep Ku App ini, Terdapat beberapa fitur diantaranya : </p>
+              <li>Fitur Pencarian Resep Menu (Inputan)</li>
+              <li>Fitur Pencarian Resep Menu Berdasarkan Area asal</li>
+              <li>Fitur Pencarian Resep Menu Berdasarkan Kategori Resep</li>
+              <li>Fitur Pencarian Resep Menu Berdasarkan Bahan Baku pembuatannya</li>
+              <li>Fitur Login dan Register Menggunakan Vuex (Masih ada sedikit bug dimana saat pertama kali mengetik huruf maka akan modal akan tertutup, sehingga user diharuskan mengklik beberapa kali tombol login tersebut hingga modal login tampil kembali, error ini disebabkan karena penggunaan v-model pada modal dan saya masih belum tahu solusinya.)</li>
+              <li>Fitur Favorite Menu Menggunakan Vuex, fitur ini hanya bisa di akses setelah user Login terlebih dahulu (Masih ada sedikit bug dimana saat user mengklik tombol 'Add to my Favourites' pada masing-masing resep maka di menu my Favorite akan menampilkan multiple resep yang mana resep tersebut hanya mengambil data dari resep terakhir yang tombol 'Add to my Favourites' nya ditekan. Saya sudah melakukan pengecekan berulang kali pada alur logika yang saya gunakan tetapi saya belum berhasil menemukan penyebabnya.)</li>
+              <li>Fitur Logout menggunakan Vuex, Fitur yang hanya ada saat User telah Login
+                <br>
+              <p>Demikian Rangkuman mengenai aplikasi yang saya buat ini.</p>
+              <br>
+              <h5 style="text-align: right;">Andri Setya Hermawan</h5>
+              <p style="text-align: right;">183140914111008</p>
+              </li>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <br><br><br>
   </div>
 </template>

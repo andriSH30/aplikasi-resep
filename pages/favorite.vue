@@ -1,37 +1,16 @@
 <template>
-  <div>
-    <div class="alert alert-warning text-center" role="alert">
-      <h4>Categories</h4>
-      <div v-for="k in kategori" v-bind:key="k.idCategory" style="display: inline !important;">
-        <a class="link-kategori" style="margin-left: 20px; color: #cf1717;" @click="filterKategori(k.strCategory)"> {{k.strCategory}} </a>
-      </div>
-    </div>
-    <div class="alert alert-danger text-center" role="alert" style="margin-top: -10px;">
-      <h4>Area</h4>
-      <div v-for="a in area" v-bind:key="a.idArea" style="display: inline !important;">
-        <a class="link-area" style="margin-left: 20px;" @click="filterArea(a.strArea)"> {{a.strArea}} </a>
-      </div>
-    </div>
   <div class="container">
-  <div class="row mt-1 justify-content-center">
-        <div class="col-md-8">
-            <h1 class="text-center">Search Your food Recipes!</h1>
-            <div class="input-group mb-1 mt-1">
-                <input type="text" class="form-control" v-model="cari" placeholder="Input a food's name here!" style="text-align:center;">
-            </div>
-        </div>
-    </div>
-    <hr>
+    <h1 class="text-center mt-3 mb-3">My Favourite Recipes!</h1>
     <div class="row">
-      <div class="col-md-4" v-for="item in filterMenu" v-bind:key="item.idMeal">
+      <div class="col-md-4" v-for="f in favoritku" v-bind:key="f.index">
         <div class="card mb-3">
-            <img :src="item.strMealThumb" class="card-img-top" style="width: 100%; height: 350px; ">
+            <img :src="f.gambar" class="card-img-top" style="width: 100%; height: 350px; ">
             <div class="card-body text-center">
               <div class="alert alert-warning" role="alert">
-                <h4 class="card-title" style="text-align:center;">{{ item.strMeal }}</h4>
+                <h4 class="card-title" style="text-align:center;">{{ f.nama }}</h4>
               </div>
-              <button type="button" class="btn btn-outline-danger btn-block"  data-toggle="modal" data-target="#staticBackdrop" @click="detail(item.idMeal)">See Recipes!</button>
-              <button type="button" class="btn btn-warning btn-block" v-if="sLogin" @click="addFav(item.idMeal)">Add to my Favourite!</button>
+              <button type="button" class="btn btn-outline-danger btn-block"  data-toggle="modal" data-target="#staticBackdrop" @click="detail(f.id)">See Recipes!</button>
+              <!-- <button type="button" class="btn btn-warning btn-block" @click="addFav(f.id)">Delete from my Favourite!</button> -->
             </div>
         </div>
       </div>
@@ -112,78 +91,23 @@
         </div>
       </div>
     </div>
-
-</div>
-    <div class="alert alert-dark text-center" role="alert" style="margin-top: 10px;">
-      <h2>Ingredients</h2>
-      <div v-for="b in bahan" v-bind:key="b.idIngredient" style="display: inline !important;">
-        <a class="link-bahan" style="margin-left: 20px;" @click="filterBahan(b.strIngredient)"> {{b.strIngredient}} </a>
-      </div>
-    </div>
-</div>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  data () {
+  data() {
     return {
-      cari: '',
-      kategori: [],
-      area: [],
-      bahan: [],
-      results: [],
       detailMenu: [],
-      fav: {
-        id: '',
-        nama: '',
-        gambar: ''
-      }
     }
   },
-
-  created() {
-    axios.get("https://www.themealdb.com/api/json/v1/1/search.php?s=")
-      .then(response => {
-        this.results = response.data.meals
-        console.log(this.fav.nama)
-      }),
-      axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then(response => {
-        this.kategori = response.data.categories
-      }),
-      axios.get("https://www.themealdb.com/api/json/v1/1/list.php?a=list")
-      .then(response => {
-        this.area = response.data.meals
-      }),
-      axios.get("https://www.themealdb.com/api/json/v1/1/list.php?i=list")
-      .then(response => {
-        this.bahan = response.data.meals
-      })
+  computed: {
+    favoritku: function() {
+      return this.$store.state.favorite
+    }
   },
-
-  methods : {
-    filterKategori: function(namaKategori) {
-      this.results = [];
-      axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c="+namaKategori)
-      .then(response => {
-        this.results = response.data.meals
-      })
-    },
-    filterArea: function(namaArea) {
-      this.results = [];
-      axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?a="+namaArea)
-      .then(response => {
-        this.results = response.data.meals
-      })
-    },
-    filterBahan: function(namaBahan) {
-      this.results = [];
-      axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?i="+namaBahan)
-      .then(response => {
-        this.results = response.data.meals
-      })
-    },
+  methods: {
     detail: function(id) {
       axios.get("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+id)
       .then(response => {
@@ -193,51 +117,6 @@ export default {
     keluar: function() {
       this.detailMenu = [];
     },
-    addFav: function(id) {
-      axios.get("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+id)
-      .then(response => {
-        this.fav.id = response.data.meals[0].idMeal,
-        this.fav.nama = response.data.meals[0].strMeal,
-        this.fav.gambar = response.data.meals[0].strMealThumb
-
-        console.log(this.fav.id)
-        console.log(this.fav.nama)
-        console.log(this.fav.gambar)
-
-        this.$store.dispatch('simpanFavorite',this.fav)
-
-      })
-    }
-  },
-  computed: {
-    filterMenu: function() {
-      return this.results.filter((item) => {
-        return item.strMeal.toLowerCase().match(this.cari.toLowerCase())
-      })
-    },
-    sLogin: function (){
-      return this.$store.state.statusLogin
-    },
-    sLogout: function (){
-      return this.$store.state.statusLogout
-    }
   }
 }
-</script>
-<style scoped>
-  body{
-    background-color: #f09c9c;
-  }
-  .link-kategori:hover{
-    border-bottom: solid 2px #cf1717;
-  }
-  .link-area:hover{
-    border-bottom: solid 2px black;
-  }
-  .link-bahan:hover{
-    border-bottom: solid 2px black;
-  }
-</style>
-
-
-
+</script>>

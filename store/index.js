@@ -8,11 +8,18 @@ const createStore = () => {
       akun : {
         username: "andri123",
         password: "andri123"
-      }
+      },
+      favorite : [
+
+      ]
     },
     mutations: {
       increment (state) {
         state.counter++
+      },
+      FAVORITE: (state, fav) => {
+        state.favorite.push(fav)
+        console.log(state.favorite.id)
       }
     },
     actions: {
@@ -34,6 +41,9 @@ const createStore = () => {
         this.state.akun.password = userRegister.passwordRegister
         console.log(userRegister.usernameRegister)
         console.log(userRegister.passwordRegister)
+      },
+      simpanFavorite({commit}, fav) {
+        commit('FAVORITE',fav)
       }
     }
   })
