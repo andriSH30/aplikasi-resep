@@ -13,7 +13,7 @@
               <li>Fitur Pencarian Resep Menu Berdasarkan Kategori Resep</li>
               <li>Fitur Pencarian Resep Menu Berdasarkan Bahan Baku pembuatannya</li>
               <li>Fitur Login dan Register Menggunakan Vuex (Masih ada sedikit bug dimana saat pertama kali mengetik huruf maka akan modal akan tertutup, sehingga user diharuskan mengklik beberapa kali tombol login tersebut hingga modal login tampil kembali, error ini disebabkan karena penggunaan v-model pada modal dan saya masih belum tahu solusinya.)</li>
-              <li>Fitur Favorite Menu Menggunakan Vuex, fitur ini hanya bisa di akses setelah user Login terlebih dahulu (Masih ada sedikit bug dimana saat user mengklik tombol 'Add to my Favourites' pada masing-masing resep maka di menu my Favorite akan menampilkan multiple resep yang mana resep tersebut hanya mengambil data dari resep terakhir yang tombol 'Add to my Favourites' nya ditekan. Saya sudah melakukan pengecekan berulang kali pada alur logika yang saya gunakan tetapi saya belum berhasil menemukan penyebabnya.)</li>
+              <li>Fitur Favorite Menu Menggunakan Vuex, fitur ini hanya bisa di akses setelah user Login terlebih dahulu (Masih ada sedikit bug dimana user dapat menambahkan lebih dari satu resep yang sama ke dalam menu 'My Favourites')</li>
               <li>Fitur Logout menggunakan Vuex, Fitur yang hanya ada saat User telah Login
                 <br>
               <p>Demikian Rangkuman mengenai aplikasi yang saya buat ini.</p>

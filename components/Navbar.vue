@@ -5,13 +5,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav ml-auto mr-auto">
+          <div class="navbar-nav mr-auto">
             <nuxt-link to="/" class="nav-item nav-link active">Meals</nuxt-link>
             <nuxt-link to="/about" class="nav-item nav-link active">About</nuxt-link>
-            <nuxt-link to="" class="nav-item nav-link active" v-if="sLogout" data-toggle="modal" data-target="#loginModal">Login</nuxt-link>
-            <nuxt-link to="/favorite" v-if="sLogin" class="nav-item nav-link active">My Favourites</nuxt-link>
-            <a href="" v-on:click.prevent="logout" v-if="sLogin" class="nav-item nav-link active">Logout</a>
-
+            <nuxt-link to="/favorite" class="nav-item nav-link active" v-if="sLogin">My Favourites</nuxt-link>
+          </div>
+          <div class="navbar-nav ml-auto mr-auto text-judul"><h4>ResepKu</h4></div>
+          <div class="navbar-nav ml-auto">
+            <nuxt-link to="" v-if="sLogout" data-toggle="modal" data-target="#loginModal"><button type="button" class="btn btn-outline-warning">Login</button></nuxt-link>
+            <nuxt-link to="/"><button type="button" v-on:click="logout" v-if="sLogin" class="btn btn-outline-warning">Logout</button></nuxt-link>
           </div>
       </div>
     </nav>
@@ -73,6 +75,7 @@
       </div>
 </template>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
   .navbar.navbar-expand-lg.nav-red {
     background-color: #cf1717;
     text-decoration: none;
@@ -81,10 +84,20 @@
   .navbar .navbar-dark {
     color: white;
   }
+  .nav-link {
+    margin-left: 10px;
+  }
 
   .nav-link:hover{
     color: yellow !important;
   }
+
+  .text-judul{
+    font-family: 'Righteous', cursive;
+    color: white;
+    margin-left: 40px !important;
+  }
+
 </style>
 <script>
 export default {

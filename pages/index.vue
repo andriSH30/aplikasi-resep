@@ -31,7 +31,9 @@
                 <h4 class="card-title" style="text-align:center;">{{ item.strMeal }}</h4>
               </div>
               <button type="button" class="btn btn-outline-danger btn-block"  data-toggle="modal" data-target="#staticBackdrop" @click="detail(item.idMeal)">See Recipes!</button>
-              <button type="button" class="btn btn-warning btn-block" v-if="sLogin" @click="addFav(item.idMeal)">Add to my Favourite!</button>
+              <div class="addFav mt-3">
+                <nuxt-link to="/favorite" style="margin-top:10px;"><button type="button" class="btn btn-warning btn-block" v-if="sLogin" @click="addFav(item.idMeal)">Add to my Favourite!</button></nuxt-link>
+              </div>
             </div>
         </div>
       </div>
@@ -236,6 +238,9 @@ export default {
   }
   .link-bahan:hover{
     border-bottom: solid 2px black;
+  }
+  .addFav:hover{
+    text-decoration: none !important;
   }
 </style>
 
