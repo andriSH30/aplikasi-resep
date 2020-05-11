@@ -5,12 +5,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav mr-auto">
+          <div class="navbar-nav text-judul">
+            <h4>ResepKu</h4>
+          </div>
+          <div class="navbar-nav ml-auto justify-content-center">
             <nuxt-link to="/" class="nav-item nav-link active">Meals</nuxt-link>
             <nuxt-link to="/about" class="nav-item nav-link active">About</nuxt-link>
             <nuxt-link to="/favorite" class="nav-item nav-link active" v-if="sLogin">My Favourites</nuxt-link>
           </div>
-          <div class="navbar-nav ml-auto mr-auto text-judul"><h4>ResepKu</h4></div>
           <div class="navbar-nav ml-auto">
             <nuxt-link to="" v-if="sLogout" data-toggle="modal" data-target="#loginModal"><button type="button" class="btn btn-outline-warning">Login</button></nuxt-link>
             <nuxt-link to="/"><button type="button" v-on:click="logout" v-if="sLogin" class="btn btn-outline-warning">Logout</button></nuxt-link>
@@ -95,7 +97,7 @@
   .text-judul{
     font-family: 'Righteous', cursive;
     color: white;
-    margin-left: 40px !important;
+    text-align: center;
   }
 
 </style>
