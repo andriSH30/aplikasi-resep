@@ -9,13 +9,13 @@
             <h4>ResepKu</h4>
           </div>
           <div class="navbar-nav ml-auto justify-content-center">
-            <nuxt-link to="/" class="nav-item nav-link active">Meals</nuxt-link>
-            <nuxt-link to="/about" class="nav-item nav-link active">About</nuxt-link>
-            <nuxt-link to="/favorite" class="nav-item nav-link active" v-if="sLogin">My Favourites</nuxt-link>
+            <nuxt-link to="/" class="nav-item nav-link active text-judul">Meals</nuxt-link>
+            <nuxt-link to="/about" class="nav-item nav-link active text-judul">About</nuxt-link>
+            <nuxt-link to="/favorite" class="nav-item nav-link active text-judul" v-if="sLogin">My Favourites</nuxt-link>
           </div>
           <div class="navbar-nav ml-auto">
-            <nuxt-link to="" v-if="sLogout" data-toggle="modal" data-target="#loginModal"><button type="button" class="btn btn-outline-warning">Login</button></nuxt-link>
-            <nuxt-link to="/"><button type="button" v-on:click="logout" v-if="sLogin" class="btn btn-outline-warning">Logout</button></nuxt-link>
+            <nuxt-link to="" v-if="sLogout" data-toggle="modal" data-target="#loginModal"><button type="button" class="btn btn-outline-light">Login</button></nuxt-link>
+            <nuxt-link to="/"><button type="button" v-on:click="logout" v-if="sLogin" class="btn btn-outline-light text-judul">Logout</button></nuxt-link>
           </div>
       </div>
     </nav>
